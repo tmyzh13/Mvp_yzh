@@ -16,7 +16,7 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        //初始化api工厂
+        //初始化api工厂1
         ApiFactory.getInstance().addUrl(Urls.BASE);
         ToastMgr.init(getApplicationContext());
 
