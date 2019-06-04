@@ -24,7 +24,7 @@ public abstract class BaseFragment<V extends BaseView,T extends BasePresenter>
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        parenteView = getLayoutInflater().inflate(getLayoutId(), null, false);
+        parenteView = LayoutInflater.from(getActivity()).inflate(getLayoutId(), null, false);
         presenter=createPresenter();
         if(presenter!=null){
             presenter.attachView((V)this);

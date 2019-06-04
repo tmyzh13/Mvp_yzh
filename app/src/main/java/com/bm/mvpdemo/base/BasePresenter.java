@@ -3,6 +3,7 @@ package com.bm.mvpdemo.base;
 import android.util.Log;
 
 import com.trello.rxlifecycle2.components.RxActivity;
+import com.trello.rxlifecycle2.components.support.RxFragmentActivity;
 
 import java.lang.ref.Reference;
 import java.lang.ref.WeakReference;
@@ -47,11 +48,11 @@ public abstract class BasePresenter<V extends BaseView> {
      */
     public abstract void onStart();
 
-    protected RxActivity activity;
-    private Reference<RxActivity> mActivityRef;
+    protected RxFragmentActivity activity;
+    private Reference<RxFragmentActivity> mActivityRef;
 
-    public  void setRxActivity(RxActivity activity){
-        mActivityRef=new WeakReference<RxActivity>(activity);
+    public  void setRxActivity(RxFragmentActivity activity){
+        mActivityRef=new WeakReference<RxFragmentActivity>(activity);
         this.activity=activity;
         Log.e("yzh","activity--"+activity.getClass().getName());
     }

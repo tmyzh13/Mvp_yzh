@@ -14,6 +14,8 @@ android {
                 includeCompileClasspath=true
             }
         }
+
+        renderscriptSupportModeEnabled true
     }
     buildTypes {
         release {
@@ -46,4 +48,7 @@ dependencies {
 
     compile 'com.trello.rxlifecycle2:rxlifecycle-components:2.1.0'
     compile 'com.trello.rxlifecycle2:rxlifecycle-navi:2.1.0'
+
+    implementation rootProject.ext.dependencies.realtimeBlurView
+    implementation 'com.github.Kennyc1012:MultiStateView:1.3.2'
 }

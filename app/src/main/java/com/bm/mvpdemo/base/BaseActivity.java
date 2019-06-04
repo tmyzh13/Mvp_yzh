@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import com.bm.mvpdemo.utils.AppManager;
 import com.bm.mvpdemo.utils.ToastMgr;
 import com.trello.rxlifecycle2.components.RxActivity;
+import com.trello.rxlifecycle2.components.support.RxFragmentActivity;
 
 import butterknife.ButterKnife;
 
@@ -16,7 +17,7 @@ import butterknife.ButterKnife;
  * Created by john on 2018/3/28.
  */
 
-public abstract class BaseActivity <V extends BaseView,T extends BasePresenter> extends RxActivity implements BaseView {
+public abstract class BaseActivity <V extends BaseView,T extends BasePresenter> extends RxFragmentActivity implements BaseView {
 
     protected T presenter;
     private ProgressDialog progressDialog;
