@@ -4,6 +4,7 @@ import com.bm.mvpdemo.bean.BaseData;
 import com.bm.mvpdemo.utils.HttpResultFunction;
 import com.bm.mvpdemo.utils.ServerResultFunction;
 import com.trello.rxlifecycle2.components.RxActivity;
+import com.trello.rxlifecycle2.components.support.RxFragmentActivity;
 
 import io.reactivex.Observable;
 import io.reactivex.Observer;
@@ -28,7 +29,7 @@ public class ApiMethod {
      * @param apiObservable
      * @return
      */
-    public static Observable<BaseData> getObservable(Observable<BaseData> apiObservable, RxActivity activity){
+    public static Observable<BaseData> getObservable(Observable<BaseData> apiObservable, RxFragmentActivity activity){
         Observable observable;
         observable=apiObservable
                 //对返回的数据做一次处理，成功--正常返回数据  失败抛出异常

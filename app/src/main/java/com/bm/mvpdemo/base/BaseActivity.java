@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.bm.mvpdemo.utils.AppManager;
 import com.bm.mvpdemo.utils.ToastMgr;
@@ -35,9 +36,11 @@ public abstract class BaseActivity <V extends BaseView,T extends BasePresenter> 
             presenter.attachView((V)this);
             presenter.setRxActivity(this);
         }
+        Log.e("yzh","111111111111111111");
         ButterKnife.bind(this);
         progressDialog=new ProgressDialog(this);
         progressDialog.setCancelable(false);
+        Log.e("yzh","111111222");
         init(savedInstanceState);
         if(presenter!=null){
             presenter.onStart();

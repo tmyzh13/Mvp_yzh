@@ -8,22 +8,24 @@ import android.widget.LinearLayout;
 import com.bm.mvpdemo.adapter.FixedFragmentPagerAdapter;
 import com.bm.mvpdemo.base.BaseActivity;
 import com.bm.mvpdemo.base.BasePresenter;
+import com.bm.mvpdemo.views.home.HomeFragment;
+import com.kennyc.view.MultiStateView;
 
-import butterknife.Bind;
+import butterknife.BindView;
 
 public class MainActivity extends BaseActivity implements ViewPager.OnPageChangeListener {
 
-    @Bind(R.id.ll_home)
+    @BindView(R.id.ll_home)
     LinearLayout ll_home;
-    @Bind(R.id.ll_book)
+    @BindView(R.id.ll_book)
     LinearLayout ll_book;
-    @Bind(R.id.ll_wechat)
+    @BindView(R.id.ll_wechat)
     LinearLayout ll_wechat;
-    @Bind(R.id.ll_project)
+    @BindView(R.id.ll_project)
     LinearLayout ll_project;
-    @Bind(R.id.ll_mine)
+    @BindView(R.id.ll_mine)
     LinearLayout ll_mine;
-    @Bind(R.id.vp)
+    @BindView(R.id.vp)
     ViewPager vp;
 
     private FixedFragmentPagerAdapter mPagerAdapter;
@@ -39,7 +41,7 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
         vp.setOffscreenPageLimit(4);
         mPagerAdapter =new FixedFragmentPagerAdapter(getSupportFragmentManager());
         vp.setAdapter(mPagerAdapter);
-        mPagerAdapter.setFragmentList();
+        mPagerAdapter.setFragmentList(HomeFragment.create());
 
     }
 

@@ -1,6 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/main"
+        android:id="@+id/rl_title">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/home"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:layout_centerInParent="true"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:paddingRight="16dp"
+            android:src="@mipmap/ic_search"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            />
+    </RelativeLayout>
+    <com.kennyc.view.MultiStateView
+       android:id="@+id/msv"
+       android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tool:msv_emptyView="@layout/layout_state_empty"
+        tool:msv_errorView="@layout/layout_state_error"
+        tool:msv_loadingView="@layout/layout_state_loading"
+        tool:msv_viewState="loading">
+
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/srl"
+            >
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/recycler"
+                android:clipToPadding="false"
+                android:overScrollMode="never"
+                android:paddingBottom="49dp"
+                android:scrollbars="vertical"
+                tool:layoutManager="android.support.v7.widget.LinearLayoutManager"
+                tool:listitem="@layout/rv_item_article"
+                ></android.support.v7.widget.RecyclerView>
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+    </com.kennyc.view.MultiStateView>
+
 
 </LinearLayout>

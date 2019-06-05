@@ -7,9 +7,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.trello.rxlifecycle2.components.RxActivity;
-import com.trello.rxlifecycle2.components.RxFragment;
+import com.trello.rxlifecycle2.components.support.RxFragment;
+import com.trello.rxlifecycle2.components.support.RxFragmentActivity;
 
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 /**
  * Created by john on 2018/3/28.
@@ -20,7 +22,7 @@ public abstract class BaseFragment<V extends BaseView,T extends BasePresenter>
 
     private View parenteView;
     protected T presenter;
-
+    private Unbinder mUnbinder = null;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,9 +30,9 @@ public abstract class BaseFragment<V extends BaseView,T extends BasePresenter>
         presenter=createPresenter();
         if(presenter!=null){
             presenter.attachView((V)this);
-            presenter.setRxActivity((RxActivity)getActivity());
+            presenter.setRxActivity((RxFragmentActivity) getActivity());
         }
-        ButterKnife.bind(this,parenteView);
+        mUnbinder=ButterKnife.bind(this,parenteView);
         init(savedInstanceState);
         if(presenter!=null){
             presenter.onStart();
@@ -52,7 +54,7 @@ public abstract class BaseFragment<V extends BaseView,T extends BasePresenter>
             presenter.clearRxActivity();
         }
         presenter = null;
-        ButterKnife.unbind(this);
+        mUnbinder.unbind();
     }
     public T getPresenter() {
         return presenter;

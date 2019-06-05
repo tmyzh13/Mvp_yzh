@@ -1,10 +1,17 @@
 ext{
     versions = [
             realtimeBlurView   : "1.1.2",
+            smartRefreshLayout : "1.1.0-alpha-21",
+            appcompat          : "28.0.0",
+            roundedimageview   : "2.3.0",
     ]
 
     dependencies=[
             realtimeBlurView       : "com.github.mmin18:realtimeblurview:$versions.realtimeBlurView",
+            smartRefreshLayout     : "com.scwang.smartrefresh:SmartRefreshLayout:$versions.smartRefreshLayout",
+            recyclerview           : "com.android.support:recyclerview-v7:$versions.appcompat",
+            roundedimageview       : "com.makeramen:roundedimageview:$versions.roundedimageview",
+
     ]
 }
 

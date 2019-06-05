@@ -11,6 +11,7 @@ import com.bm.mvpdemo.https.ApiMethod;
 import com.bm.mvpdemo.https.BaseObserver;
 import com.bm.mvpdemo.utils.ApiException;
 import com.trello.rxlifecycle2.components.RxActivity;
+import com.trello.rxlifecycle2.components.support.RxFragmentActivity;
 
 import java.util.Map;
 
@@ -27,7 +28,7 @@ public class LoginModel implements BaseModel{
         api= ApiFactory.getInstance().create(LoginApi.class);
     }
 
-    public void requestPostAPI(RxActivity activity, Map params, final BaseCallBackNew<UserBean> callBack) {
+    public void requestPostAPI(RxFragmentActivity activity, Map params, final BaseCallBackNew<UserBean> callBack) {
         ApiMethod.getObservable(api.login(params),activity)
                 .subscribe(new BaseObserver<UserBean>("login") {
 
