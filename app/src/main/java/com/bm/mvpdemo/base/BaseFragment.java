@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.bm.mvpdemo.R;
+import com.gyf.barlibrary.ImmersionBar;
 import com.trello.rxlifecycle2.components.RxActivity;
 import com.trello.rxlifecycle2.components.support.RxFragment;
 import com.trello.rxlifecycle2.components.support.RxFragmentActivity;
@@ -49,6 +51,7 @@ public abstract class BaseFragment<V extends BaseView,T extends BasePresenter>
     @Override
     public void onDestroy() {
         super.onDestroy();
+
         if (presenter != null){
             presenter.detachView();
             presenter.clearRxActivity();
@@ -107,4 +110,5 @@ public abstract class BaseFragment<V extends BaseView,T extends BasePresenter>
             ((BaseActivity)getActivity()).showErr();
         }
     }
+
 }

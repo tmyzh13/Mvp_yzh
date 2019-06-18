@@ -34,6 +34,7 @@
                 android:background="@drawable/bg_point"
                 />
             <TextView
+                android:id="@+id/tv_autor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="13sp"
@@ -96,6 +97,7 @@
                 android:text="公众号文章列表强势上线公众号文章列表强势公众号文章列表强势上线公众号文章列表强势"
                 android:textSize="15dp"
                 android:singleLine="true"
+                android:id="@+id/tv_title"
                 />
             <TextView
                 android:layout_width="match_parent"

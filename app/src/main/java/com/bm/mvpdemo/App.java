@@ -30,13 +30,17 @@ import retrofit2.Retrofit;
 public class App extends MultiDexApplication {
 
      private static final List<String> APP_LIKE_LIST = new ArrayList<>();
+    private static App app;
+
+    public static App getInstance(){
+        return app;
+    }
 
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
         findAppLike();
         MultiDex.install(this);
-
     }
 
     private void findAppLike() {
@@ -55,10 +59,11 @@ public class App extends MultiDexApplication {
     public void onCreate() {
         super.onCreate();
         //初始化api工厂1
-        ApiFactory.getInstance().addUrl(Urls.BASE);
+        ApiFactory.getInstance().addUrl(Urls.BASE_URL);
         ToastMgr.init(getApplicationContext());
 
         initSmartRefresh();
+        app = this;
     }
 
     private void initSmartRefresh() {

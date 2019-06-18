@@ -3,16 +3,19 @@ package com.bm.mvpdemo.model;
 import android.util.Log;
 
 import com.bm.mvpdemo.api.ApiFactory;
+import com.bm.mvpdemo.api.HomeApi;
 import com.bm.mvpdemo.api.LoginApi;
 import com.bm.mvpdemo.base.BaseCallBackNew;
 import com.bm.mvpdemo.base.BaseModel;
+import com.bm.mvpdemo.bean.BannerBean;
+import com.bm.mvpdemo.bean.BaseData;
 import com.bm.mvpdemo.bean.UserBean;
 import com.bm.mvpdemo.https.ApiMethod;
 import com.bm.mvpdemo.https.BaseObserver;
 import com.bm.mvpdemo.utils.ApiException;
-import com.trello.rxlifecycle2.components.RxActivity;
 import com.trello.rxlifecycle2.components.support.RxFragmentActivity;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -22,6 +25,7 @@ import java.util.Map;
 public class LoginModel implements BaseModel{
 
     private LoginApi api;
+    private HomeApi homeApi;
 
     @Override
     public void getNetApi() {
@@ -44,6 +48,20 @@ public class LoginModel implements BaseModel{
                         Log.e("yzh","code--"+e.getCode());
                         callBack.onFailure(e.getCode(),e.getMsg());
                     }
+
+                });
+        ApiMethod.getObservable(api.getBanner(params),activity)
+                .subscribe(new BaseObserver<BannerBean>("") {
+                    @Override
+                    protected void onSuccess(BannerBean o) {
+
+                    }
+
+                    @Override
+                    protected void onFail(ApiException e) {
+
+                    }
+
 
                 });
     }
